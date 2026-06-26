@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ZDR Ghost Gateway Dashboard</title>
+  <style>
+    :root {
+      --bg-primary: #0f172a;
+      --bg-surface: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #3b82f6;
+      --safe: #10b981;
+      --crit: #ef4444;
+    }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      width: 420px;
+      margin: 0;
+      padding: 20px;
+      background: var(--bg-primary);
+      color: var(--text);
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0 0 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .status-card {
+      background: var(--bg-surface);
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--safe);
+    }
+    .status-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .status-value {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .history-container h2 {
+      font-size: 13px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 0 0 10px 0;
+      letter-spacing: 0.05em;
+    }
+    .history-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 260px;
+      overflow-y: auto;
+    }
+    .history-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+    .badge {
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      float: right;
+    }
+    .badge-crit { background: rgba(239, 68, 68, 0.15); color: var(--crit); }
+    .badge-high { background: rgba(249, 115, 22, 0.15); color: #f97316; }
+    .badge-medium { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+    .badge-low { background: rgba(16, 185, 129, 0.15); color: var(--safe); }
+    .empty {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 30px 0;
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+    }
+    .platform-tag {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .timestamp {
+      color: var(--muted);
+      font-size: 10px;
+      margin-left: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+    ZDR Ghost Gateway PRO
+  </h1>
+
+  <div class="status-card">
+    <div class="status-title">Active Security Layer</div>
+    <div class="status-value">Direct DOM Interception Operational</div>
+    <div style="font-size: 12px; color: var(--muted); margin-top: 6px;">
+      Running silently on <strong>ChatGPT</strong>, <strong>Claude</strong>, and <strong>Gemini</strong>.
+    </div>
+  </div>
+
+  <div class="history-container">
+    <h2>Real-Time Intercept Log</h2>
+    <div class="history-list" id="historyContainer">
+      <div class="empty">No inputs intercepted yet. Type inside an LLM chatbox to activate.</div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
